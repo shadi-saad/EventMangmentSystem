@@ -1,0 +1,74 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+a {
+    color: darkblue;
+    text-decoration: none;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.bsb-hero-1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); 
+    z-index: 1;
+}
+.DateUpcoming {
+    color: white;
+    background-color: limegreen;
+    padding: 5px;
+    border-radius:5px;
+}
+.DateExpired {
+    color: white;
+    background-color: red;
+    padding: 5px;
+    border-radius: 5px;
+}
+.nav-link {
+    position: relative;
+}
+.nav-link:hover::after {
+    content: "";
+    position: absolute;
+    bottom: -2px; 
+    left: 0;
+    width: 100%;
+    border-bottom: 2px solid black;
+    transition: border-bottom 0.7s ease-in-out; 
+}
+
+
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        border-bottom: 2px solid transparent;
+        transition: border-bottom 0.7s ease-in-out;
+    }
+.page-info {
+    color:gray;
+}

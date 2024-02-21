@@ -1,0 +1,60 @@
+﻿@model EventMangmentSystem.ViewModel.EventGoingViewModel
+
+@{
+    ViewData["Title"] = "Going Event Page";
+}
+
+
+<hr />
+
+<section class="py-6">
+    <div class="container">
+        <div class="row">
+            @foreach (var eventItem in Model.Events )
+            {
+                    <div class="col-xxl-4 col-xl-6 col-lg-12 mb-5">
+                        <div class="card mb-4 mb-xl-0 card-hover border">
+                             <img src="~/Events.jpg" alt="webinar-1" class="img-fluid w-100 rounded-top-3">
+                               <div class="position-absolute">
+                            @{
+                                if (eventItem.Date >= DateTime.Now)
+                                {
+                                  <span class="DateUpcoming">Upcoming</span>
+                                }
+                                else
+                                {
+                                   <span class="DateExpired">Expired</span>
+                                }
+
+                            }
+                         </div>
+                                
+                            
+                            <div class="card-body">
+                                    <h3 class="mb-4 text-truncate">
+                                        <a asp-controller="Events" asp-action="Details" asp-route-id="@eventItem.Id">@eventItem.Title</a>
+                                    </h3>
+                                <h3 class="mb-4 text-truncate">
+                                                                   </h3>
+                                <div class="mb-4">
+                                    <div class="mb-3 lh-1">
+                                        <span class="me-1">
+                                            <i class="bi bi-calendar-check"></i>
+                                        </span>
+                                        <span>@eventItem.Date</span>
+                                    </div>
+                                    <div class="lh-1">
+                                        <span class="me-1">
+                                            <i class="bi bi-clock"></i>
+                                        </span>
+                                        <span>@eventItem.Place</span> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            </div>
+                    </div>
+            }
+        </div>
+    </div>
+</section>

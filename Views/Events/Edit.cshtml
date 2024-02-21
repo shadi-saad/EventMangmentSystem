@@ -1,0 +1,57 @@
+﻿@model EventMangmentSystem.ViewModel.EventEditViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Event</h1>
+
+<hr />
+@using (Html.BeginForm("Edit,Events"))
+{
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                     <div class="form-group">
+                        <label asp-for="Event.Title" class="control-label"></label>
+                            <input asp-for="Event.Title" class="form-control" />
+                            <span asp-validation-for="Event.Title" class="text-danger"></span>
+                    </div>
+                         <div class="form-group">
+                            <label asp-for="Event.Description" class="control-label"></label>
+                            <textarea class="form-control" asp-for="Event.Description" rows="3"></textarea>
+                            <span asp-validation-for="Event.Description" class="text-danger"></span>
+                    </div>
+                <div class="form-group">
+                        <label asp-for="Event.Date" class="control-label"></label>
+                        <input asp-for="Event.Date" class="form-control" />
+                        <span asp-validation-for="Event.Date" class="text-danger"></span>
+                </div>
+               <div class="form-group">
+                      <label asp-for="Event.Place" class="control-label"></label>
+                      <input asp-for="Event.Place" class="form-control" />
+                     <span asp-validation-for="Event.Place" class="text-danger"></span>
+                 </div>
+                <div class="form-group">
+               <label asp-for="Genre" style="display: block;">Genre</label>
+                    @Html.DropDownListFor(m => m.Genre, new SelectList(Model.Genres, "Id", "Name"))
+                <span asp-validation-for="Genre" class="text-danger"></span>
+             </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-primary mt-3" />
+                </div>
+            </form>
+        </div>
+    </div>
+}
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,44 @@
+﻿@model EventMangmentSystem.ViewModel.EventDetailViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container">
+  
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Event Information</h4>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-4">Title:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Event.Title)</dd>
+                        <hr />
+                        <dt class="col-sm-4">Description:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Event.Description)</dd>
+                         <hr />
+                        <dt class="col-sm-4">Artist:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.User.FirstName)</dd>
+                         <hr />
+                        <dt class="col-sm-4">Date:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Event.Date)</dd>
+                         <hr />
+                        <dt class="col-sm-4">Place:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Event.Place)</dd>
+                         <hr />
+                        <dt class="col-sm-4">Genre:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Genre.Name)</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-2 ">
+<a class="btn btn-primary" asp-controller="Events" asp-action="AddingCommentToEvent" asp-route-eventId="@Model.Event.Id">Comment</a> |
+    <a class="btn btn-secondary"asp-action="Index">Back to List</a>
+</div>
